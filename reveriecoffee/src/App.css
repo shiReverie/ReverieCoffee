@@ -1,0 +1,518 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #cfe6fb;
+    font-family: "a_BosaNova", sans-serif;
+}
+
+#root {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.headerStyle a {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2e2826;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.navStyle {
+    background-color: #ffffff;
+    font-size: 20px;
+    font-family: "a_BosaNova";
+    color: #2e2826;
+    height: 50px;
+    width: 1550px;
+    position: fixed; 
+    top: 40px; 
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #2e2826;
+}
+
+a:hover {
+    color: #cfe6fb;
+}
+
+main {
+    display: flex;
+    width: 100vw;
+    height: auto;
+    margin-top: 70px; 
+}
+
+.section {
+    width: 33.33vw;
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.75) contrast(1.2) saturate(0.8);
+    border-left: solid rgb(255, 255, 255) 2px;
+    border-right: solid rgb(255, 255, 255) 2px;
+}
+
+.img:hover {
+    transition-duration: 0.1s;
+    transform: scale(1.1);
+}
+
+.section h2 {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search {
+    z-index: 102;
+    background-image: url("../public/search.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: fixed;
+    right: 1px;
+    top: 5px;
+    padding: 15px;
+}
+
+.newInImg {
+    position: absolute;
+    left: 0;
+    top: 90px;
+    margin-top: 1.5rem;
+    height: 600px;
+    width: auto;
+}
+
+.newInDesc {
+    position: absolute;
+    left: 650px;
+    text-align: left;
+    top: 90px;
+    margin-top: 1.5rem;
+    color: #2e2826;
+    font-family:Constantia;
+}
+
+.new {
+    position: absolute;
+    top: 100px;
+    left: 535px;
+    transform: rotate(45deg);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.atcDiv {
+    display: flex;
+    margin-top: 30px;
+}
+
+.quantity {
+    font-size: 20px;
+    padding: 5px;
+    color: #2e2826;
+}
+
+.deac {
+    background-color: transparent;
+    color: #2e2826;
+}
+
+.inc {
+    background-color: transparent;
+    color: #2e2826;
+}
+
+.addToCartNew {
+    position: absolute;
+    top: 400px;
+    left: 645px;
+}
+
+.card1 {
+    position: absolute;
+    left: 10px;
+    width: 300px;
+    background-color: white;
+    top: 90px;
+    margin: 10px;
+}
+
+.card1 img {
+    height: 400px;
+    width: auto;
+}
+
+.card1 .card-body {
+    color: #2e2826;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.card1 button {
+        font-size: 20px;
+        background-color: #2e2826;
+        padding: 2px;
+    }
+
+.card1 p {
+    font-size: 24px;
+}
+
+.card1:hover {
+    transition-duration: 0.1s;
+    transform: scale(1.02);
+}
+
+.card2 {
+    position: absolute;
+    left: 400px;
+    width: 300px;
+    background-color: white;
+    top: 90px;
+    margin: 10px;
+}
+
+.card2 img {
+    padding: 10px;
+    height: 400px;
+    width: auto;
+}
+
+.card2 .card-body {
+    color: #2e2826;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.card2 p {
+    font-size: 24px;
+}
+
+.card2:hover {
+    transition-duration: 0.1s;
+    transform: scale(1.02);
+}
+
+.card2 button {
+    font-size: 20px;
+    background-color: #2e2826;
+    padding: 2px;
+}
+
+
+.card3 {
+    position: absolute;
+    right: 400px;
+    width: 300px;
+    background-color: white;
+    top: 90px;
+    margin: 10px;
+}
+
+.card3 img {
+    padding: 10px;
+    height: 400px;
+    width: auto;
+}
+
+.card3 .card-body {
+    color: #2e2826;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.card3 p {
+    font-size: 24px;
+}
+
+.card3:hover {
+    transition-duration: 0.1s;
+    transform: scale(1.02);
+}
+
+.card3 button {
+    font-size: 20px;
+    background-color: #2e2826;
+    padding: 2px;
+}
+
+
+.card4 {
+    position: absolute;
+    right: 10px;
+    width: 300px;
+    background-color: white;
+    top: 90px;
+    margin: 10px;
+}
+
+.card4 img {
+    padding: 10px;
+    height: 400px;
+    width: auto;
+}
+
+.card4 .card-body {
+    color: #2e2826;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.card4 p {
+    font-size: 24px;
+}
+
+.card4:hover {
+    transition-duration: 0.1s;
+    transform: scale(1.02);
+}
+
+.card4 button {
+    font-size: 20px;
+    background-color: #2e2826;
+    padding: 2px;
+}
+
+
+.bgBrew {
+    background-image:url('../public/brew.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 1500px;
+    height: 800px;
+
+}
+
+.hBrew {
+    position: absolute;
+    top: 100px;
+    color: #2e2826;
+    left: 580px;
+}
+
+.pBrew {
+    position: absolute;
+    top: 170px;
+    color: #2e2826;
+    left: 600px;
+    font-family:Constantia;
+}
+
+.bBrew {
+    font-size: 30px;
+    position: absolute;
+    top: 230px;
+    background-color: #2e2826;
+    left: 640px;
+}
+
+
+.hCart {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #2e2826;
+}
+
+.cartItem {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+.cartImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.cartItem div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cartItem h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.cartItem p {
+    margin: 4px 0;
+    font-size: 1rem;
+    color: #2e2826;
+}
+
+.orderProducts {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background-color: #2e2826;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .orderProducts:hover {
+        background-color: #555;
+    }
+
+.totalHeader {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #2e2826;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .navStyle {
+        width: 100%;
+        left: 0;
+    }
+    
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .section {
+        width: 100%;
+        height: auto;
+    }
+    
+    .img {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+    
+    .newInImg,
+    .newInDesc,
+    .new,
+    .addToCartNew {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 90%;
+    }
+    
+    .card1,
+    .card2,
+    .card3,
+    .card4 {
+        position: relative;
+        left: auto;
+        right: auto;
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .card1 img,
+    .card2 img,
+    .card3 img,
+    .card4 img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .bgBrew {
+        height: 800px;
+        padding: 80px 0;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hBrew {
+        font-size: 32px;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .pBrew {
+        font-size: 20px;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    .bBrew {
+        font-size: 24px;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 16px;
+    }
+}
