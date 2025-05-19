@@ -427,6 +427,29 @@ main {
     color: #2e2826;
 }
 
+.logoutButton {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #2e2826;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .logoutButton:hover {
+        background-color: #444;
+    }
+.mapImage {
+    display: block;
+    margin-left: 0;
+    width: auto;
+    max-width: 100%;
+    left: 0px;
+
+}
+
+
 
 @media only screen and (max-width: 768px) {
     .navStyle {
@@ -481,6 +504,166 @@ main {
     }
 }
 
+
+.hShipping {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #2e2826;
+    margin-bottom: 20px;
+}
+
+.mapImage {
+    width: 100%;
+    max-width: 450px;
+    display:flex;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.shipDesc {
+    text-align: center;
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .shipDesc h2 {
+        font-size: 28px;
+        font-weight: bold;
+        color: #2e2826;
+    }
+
+    .shipDesc h3 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2e2826;
+        margin-top: 15px;
+    }
+
+.sM, .sA {
+    font-family: Constantia;
+    font-size: 18px;
+    color: #2e2826;
+    line-height: 1.5;
+}
+.interactive {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #103ed7;
+}
+
+    .interactive:hover {
+        color: #002a80;
+    }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal-content {
+    color: #2e2826;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .modal-content h2 {
+        margin-bottom: 10px;
+        color: #2e2826;
+    }
+
+    .modal-content button {
+        margin-top: 15px;
+        padding: 8px 16px;
+        background-color: #2e2826;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        .modal-content button:hover {
+            background-color: #444;
+        }
+
+
+/* Адаптация для мобильных устройств */
+@media only screen and (max-width: 768px) {
+  
+
+    .hShipping {
+        font-size: 28px;
+        margin-bottom: 15px;
+
+    }
+
+    .mapImage {
+        max-width: 100%;
+        width: 90%;
+    }
+
+    .shipDesc {
+        max-width: 90%;
+        text-align: center;
+    }
+
+        .shipDesc h2, .shipDesc h3 {
+            font-size: 22px;
+        }
+
+    .sM, .sA {
+        font-size: 16px;
+    }
+}
+
+/* Улучшение адаптации для Android */
+@media only screen and (max-width: 480px) {
+
+
+    .hShipping {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .mapImage {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+
+    .shipDesc {
+        max-width: 95%;
+        padding: 0 10px;
+    }
+
+        .shipDesc h2 {
+            font-size: 20px;
+        }
+
+        .shipDesc h3 {
+            font-size: 18px;
+        }
+
+    .sM, .sA {
+        font-size: 14px;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .bgBrew {
         height: 800px;
@@ -515,4 +698,152 @@ main {
         transform: translateX(-50%);
         padding: 8px 16px;
     }
+}
+
+@media only screen and (max-width: 768px) {
+    .bgBrew {
+        height: 800px;
+        padding: 80px 0;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hBrew {
+        font-size: 32px;
+        margin-top: 20px;
+        text-align: center;
+        width: 90%;
+    }
+
+    .pBrew {
+        font-size: 20px;
+        width: 90%;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .bBrew {
+        font-size: 24px;
+        padding: 12px 24px;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .bgBrew {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .hBrew {
+        font-size: 28px;
+        width: 90%;
+    }
+
+    .pBrew {
+        font-size: 18px;
+        width: 95%;
+    }
+
+    .bBrew {
+        font-size: 22px;
+        padding: 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menuToggle {
+        display: block;
+    }
+
+    .navStyle {
+        display: none;
+        flex-direction: column;
+        height: auto;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 10px 0;
+    }
+
+        .navStyle.open {
+            display: flex;
+        }
+
+    ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 0;
+    }
+
+        ul li {
+            padding: 10px;
+        }
+
+    a {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .menuToggle {
+        font-size: 10px;
+        top: 8px;
+        left: 12px;
+        height: 14px;
+        width: 20px;
+
+    }
+
+    .navStyle {
+        top: 45px;
+        padding: 8px 0;
+    }
+
+    ul {
+        gap: 10px;
+    }
+
+    a {
+        font-size: 16px;
+        padding: 6px;
+    }
+}
+
+
+
+.menuToggle {
+    display: none;
+    font-size: 12px;
+    background: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 999;
+}
+
+.navStyle.open {
+    display: flex;
+}
+
+@media only screen and (max-width: 1024px) {
+    .menuToggle {
+        display: block;
+    }
+}
+
+.hLogin {
+    color: #2e2826;
 }

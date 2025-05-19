@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+п»їimport React, { createContext, useState, useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
@@ -19,6 +19,30 @@ const CartProvider = ({ children }) => {
     );
 };
 
+const AuthContext = createContext();
+
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+
+    const login = (username) => setUser(username);
+    const logout = () => setUser(null);
+
+    return (
+        <AuthContext.Provider value={{ user, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
+
+const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error("useAuth must be used within an AuthProvider");
+    }
+    return context;
+};
+
+
 const useCart = () => {
     const context = useContext(CartContext);
     if (!context) {
@@ -28,21 +52,34 @@ const useCart = () => {
 };
 
 const Header = () => {
+    const { user, logout } = useAuth();
+    const [menuOpen, setMenuOpen] = useState(false);
     return (
+        <AuthProvider>
         <header>
             <div className="headerStyle"><Link to="/">REVERIE COFFEE</Link></div>
-            <button className="search"></button>
-            <div className="navStyle">
+                <button className="search"></button>
+                <button className="menuToggle" onClick={() => setMenuOpen(!menuOpen)}>
+                    menu
+                </button>
+                <div className={`navStyle ${menuOpen ? "open" : ""}`}>
                 <nav>
                     <ul>
                         <li><Link to="/novinka">NEW IN</Link></li>
                         <li><Link to="/hits">BESTSELLERS</Link></li>
                         <li><Link to="/brew-your-cup">BREW YOUR CUP</Link></li>
+                        <li><Link to="/dostavka">Shipping</Link></li>
                         <li><Link to="/korzina">CART</Link></li>
+                        {user ? (
+                                <li><button onClick={logout} className="logoutButton">Logout ({user})</button></li>
+                        ) : (
+                            <li><Link to="/login">Login</Link></li>
+                        )}
                     </ul>
                 </nav>
             </div>
-        </header>
+            </header>
+        </AuthProvider>
     );
 };
 
@@ -178,33 +215,66 @@ const pageStyle = {
     textAlign: 'center'
 };
 
-const DostavkaPage = () => (
-    <div style={pageStyle}>
-        <h1>Доставка</h1>
-        <p>Контент для раздела Доставка</p>
-    </div>
-);
+const DostavkaPage = () => {
+    const [showModal, setShowModal] = useState(false);
+
+    return(
+        <div>
+            <h1 className="hShipping">Shipping</h1>
+            <img src="/map.png" className="mapImage" alt="Map" />
+            <div className="shipDesc">
+                <h2>Shipping methods:</h2>
+                <p className="sM">
+                    <span className="interactive" onClick={() => setShowModal(true)}>1)pickup in our stores</span><br />
+                    2)courier delivery</p>
+                <h3> Additional:</h3>
+                <p className="sA">
+                    1)The shipping price depends on your country's taxes
+                    2)The goods are guaranteed to be delivered within
+                    7-10 working days
+                    3) A track number is issued when ordering
+                </p>
+            </div>
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <h2>Store Locations</h2>
+                        <p>1. 123 Coffee St, New York</p>
+                        <p>2. 456 Espresso Ave, Los Angeles</p>
+                        <p>3. 789 Latte Blvd, Chicago</p>
+                        <button onClick={() => setShowModal(false)}>Close</button>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
 
 const AboutPage = () => (
     <div style={pageStyle}>
-        <h1>О нас</h1>
-        <p>Контент для раздела О нас.</p>
+        <h1>Рћ РЅР°СЃ</h1>
+        <p>РљРѕРЅС‚РµРЅС‚ РґР»СЏ СЂР°Р·РґРµР»Р° Рћ РЅР°СЃ.</p>
     </div>
 );
 
 const QaPage = () => (
     <div style={pageStyle}>
         <h1>Q&A</h1>
-        <p>Контент для раздела Q&A.</p>
+        <p>РљРѕРЅС‚РµРЅС‚ РґР»СЏ СЂР°Р·РґРµР»Р° Q&A.</p>
     </div>
 );
 
 const KorzinaPage = () => {
     const { cart } = useCart();
+    const { user } = useAuth();
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     const handleOrder = () => {
-        alert(`Your order has been placed! Total cost: $${total}`);
+        if (!user) {
+            alert("You must be logged in to place an order!");
+            return;
+        }
+        alert(`Order placed! Total cost: $${total}`);
     };
 
     return (
@@ -230,8 +300,35 @@ const KorzinaPage = () => {
     );
 };
 
+
+const LoginPage = () => {
+    const { login } = useAuth();
+    const [username, setUsername] = useState("");
+
+    const handleLogin = () => {
+        if (username.trim() !== "") {
+            login(username);
+        }
+    };
+
+    return (
+        <div>
+            <h1 className = "hLogin">Login</h1>
+            <input
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+            <button onClick={handleLogin}>Log In</button>
+        </div>
+    );
+};
+
+
 const App = () => {
     return (
+        <AuthProvider>
         <CartProvider>
             <Router>
                 <Header />
@@ -244,9 +341,11 @@ const App = () => {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/qa" element={<QaPage />} />
                     <Route path="/korzina" element={<KorzinaPage />} />
+                    <Route path="/login" element={<LoginPage />} />
                 </Routes>
             </Router>
-        </CartProvider>
+            </CartProvider>
+        </AuthProvider>
     );
 };
 
